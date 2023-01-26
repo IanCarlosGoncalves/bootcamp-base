@@ -1,4 +1,4 @@
-@model IEnumerable<Tarefas.Web.Models.Tarefa>
+@model IEnumerable<Tarefas.Web.Models.TarefaViewModel>
 
 <table class="table">
     <thead>
@@ -20,6 +20,7 @@
                     <a asp-controller="Tarefa" asp-action="Details" asp-route-id="@item.Id">Detalhes</a>
                     <a asp-controller="Tarefa" asp-action="Update" asp-route-id = "@item.Id">/Atualizar</a>
                     <a asp-controller="Tarefa" asp-action="Delete" asp-route-id = "@item.Id">/Excluir</a>
+                    <a asp-controller="Tarefa" asp-action="Index" asp-route-id = "@item.Id">/Voltar</a>
                 </td>
             </tr>
         }
