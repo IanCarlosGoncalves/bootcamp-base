@@ -1,16 +1,50 @@
 @model Tarefas.Web.Models.TarefaViewModel
 
-<form asp-action="Create">
 
-    <div class="form-group">
-        <label asp-for="Titulo">@Html.DisplayNameFor(model => model.Titulo)</label>
-        @Html.TextBoxFor(model => model.Titulo, new { @class = "form-control" })
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+<form class ="row g-3" asp-action="Create">
+
+    @Html.ValidationSummary()
+
+    <div class="col-12">
+        <input type= "submit" class="btn btn-primary"/> <a class="btn btn-secondary" asp-controller="Tarefa" asp-action="Index">Volta</a>
+        <div class="form-group">
+            <asp-validation></asp-validation>
+            <label asp-for="Titulo">@Html.DisplayNameFor(model => model.Titulo)</label>
+            @Html.TextBoxFor(model => model.Titulo, new { @class = "form-control" })
+            
+    
+        </div>
+
+        <div class="form-group">
+            <asp-validation></asp-validation>
+            <label asp-validation-for="Descricao">@Html.DisplayNameFor(model => model.Descricao)</label>
+            @Html.TextAreaFor(model => model.Descricao, new { @class = "form-control" })
+            
+        </div>
+
+
+        <div class="form-group">
+            <input type="checkbox" asp-for="Concluida"/>
+            <label asp-for="Concluida">@Html.DisplayNameFor(model => model.Concluida) </label>
+        </div>
+        
     </div>
 
-    <div class="form-group">
-        <label asp-for="Descricao">@Html.DisplayNameFor(model => model.Descricao)</label>
-        @Html.TextAreaFor(model => model.Descricao, new { @class = "form-control" })
-    </div>
+
+    <form>
+        <h3>Titulo da pagina</h3>
+    </form>
+
+
+
         
     <input type="submit" class="btn btn-primary" value="Criar" />
         
